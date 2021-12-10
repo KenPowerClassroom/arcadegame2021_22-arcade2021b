@@ -13,6 +13,10 @@ asteroids when they are destroyed.
 
 1. As a user I should be able to move the player object around
    to avoid and get closer to enemies in game.
+   
 2. As a user I want to shoot stuff to soothe my ego.
-3.
-4.
+
+3. As a player, I want to be able to see my score increase, so I know that i am making progress
+
+4. As a user I want to see my lives on screen so I get an adrenaline boost when close to losing
+
