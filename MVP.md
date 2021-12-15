@@ -11,12 +11,11 @@ asteroids when they are destroyed.
 
 ### List of stories needed to achieve MVP
 
-1. As a user I should be able to move the player object around
-   to avoid and get closer to enemies in game.
+1. As a player, I want there to be moving asteroids, to feel immersed in an asteroid belt
+
+2. As a Spaceship Pilot, I want to move around, to avoid the asteroids
    
-2. As a user I want to shoot stuff to soothe my ego.
+3. As a user I want to shoot asteroids to clear the screen
 
-3. As a player, I want to be able to see my score increase, so I know that i am making progress
-
-4. As a user I want to see my lives on screen so I get an adrenaline boost when close to losing
+4. As a user I want to see my lives on screen so I can know how close I am to losing
 
