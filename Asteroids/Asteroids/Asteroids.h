@@ -11,11 +11,14 @@ public:
 	void draw(sf::RenderWindow& t_window);
 	void update(sf::Time t_deltaTime);
 
+	static const int MAX_ASTEROIDS = 10;
 
 	sf::RenderWindow m_window;
 	sf::Time m_time;
-	sf::Sprite m_asteroidSprite;
+	sf::Sprite m_asteroidSprite[MAX_ASTEROIDS];
 	sf::Texture m_asteroidTexture;
+
 	
-};
+	
+}; 
 
