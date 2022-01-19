@@ -17,8 +17,15 @@ public:
 	sf::Time m_time;
 	sf::Sprite m_asteroidSprite[MAX_ASTEROIDS];
 	sf::Texture m_asteroidTexture;
-
 	
-	
+	sf::Vector2f randDirection[MAX_ASTEROIDS];
 }; 
+
+class AsteroidMovement
+{
+public:
+	AsteroidMovement();
+
+	void moveAsteroid(Asteroids &t_asteroids);
+};
 

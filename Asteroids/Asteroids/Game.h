@@ -24,6 +24,7 @@ private:
 	void setupSprite();
 
 	Asteroids asteroid;
+	AsteroidMovement asteroidMovement;
 	sf::RenderWindow m_window; 
 	sf::Font m_ArialBlackfont; 
 

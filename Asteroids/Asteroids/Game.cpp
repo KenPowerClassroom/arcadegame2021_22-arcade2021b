@@ -71,6 +71,8 @@ void Game::update(sf::Time t_deltaTime)
 	{
 		m_window.close();
 	}
+	asteroid.update(t_deltaTime);
+	asteroidMovement.moveAsteroid(asteroid);
 }
 
 
