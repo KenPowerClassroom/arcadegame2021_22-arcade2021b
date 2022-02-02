@@ -6,6 +6,7 @@
 #include <ctime>
 
 #include "Globals.h" 
+#include"Player.h"
 #include"Asteroids.h"
 
 class Game
@@ -15,6 +16,8 @@ class Game
 public:
 	sf::Font m_font;
 	sf::Text m_message;
+
+	Player player;
 
 	Asteroids asteroid;
 	AsteroidMovement asteroidMovement;

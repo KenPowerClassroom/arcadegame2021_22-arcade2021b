@@ -88,7 +88,6 @@ void AsteroidMovement::loopAsteroid(Asteroids& t_asteroids)
 			t_asteroids.m_asteroidSprite[asteroidIndex].setPosition(SCREEN_WIDTH + t_asteroids.m_asteroidSprite[asteroidIndex].getGlobalBounds().width,
 				t_asteroids.m_asteroidSprite[asteroidIndex].getPosition().y);
 		}
-
 	}
 }
 
