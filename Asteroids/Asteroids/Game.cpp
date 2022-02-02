@@ -89,7 +89,9 @@ void Game::update(sf::Time t_deltaTime)
 
 
 	asteroid.update(t_deltaTime);
+
 	asteroidMovement.moveAsteroid(asteroid);
+	asteroidMovement.loopAsteroid(asteroid);
 }
 
 void Game::draw()
@@ -101,6 +103,8 @@ void Game::draw()
 	window.draw(m_message);
 
 	asteroid.draw(window);
+
+
 
 	window.display();
 }

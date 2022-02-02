@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include "Globals.h"
 
 class Asteroids
 {
@@ -27,5 +28,8 @@ public:
 	AsteroidMovement();
 
 	void moveAsteroid(Asteroids &t_asteroids);
+	void loopAsteroid(Asteroids& t_asteroids);
+	void update(sf::Time t_deltaTime);
+
 };
 

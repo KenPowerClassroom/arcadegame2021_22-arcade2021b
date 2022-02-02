@@ -32,11 +32,23 @@ void Asteroids::draw(sf::RenderWindow& t_window)
 
 void Asteroids::update(sf::Time t_deltaTime)
 {
-
+	
 }
+
+
+//
+// --------------------------------------------------------------------------------
+//
+
 
 AsteroidMovement::AsteroidMovement()
 {
+
+}
+
+void AsteroidMovement::update(sf::Time t_deltaTime)
+{
+
 }
 
 void AsteroidMovement::moveAsteroid(Asteroids &t_asteroids)
@@ -47,3 +59,39 @@ void AsteroidMovement::moveAsteroid(Asteroids &t_asteroids)
 														 t_asteroids.randDirection[asteroidIndex].y);
 	}
 }
+
+void AsteroidMovement::loopAsteroid(Asteroids& t_asteroids)
+{
+	for (int asteroidIndex = 0; asteroidIndex < t_asteroids.MAX_ASTEROIDS; asteroidIndex++)
+	{
+		// UP
+		if (t_asteroids.m_asteroidSprite[asteroidIndex].getPosition().y < - BOUNDRY - t_asteroids.m_asteroidSprite[asteroidIndex].getGlobalBounds().height) // 250, 0
+		{
+			t_asteroids.m_asteroidSprite[asteroidIndex].setPosition(t_asteroids.m_asteroidSprite[asteroidIndex].getPosition().x,
+				SCREEN_HEIGHT + t_asteroids.m_asteroidSprite[asteroidIndex].getGlobalBounds().height);
+		}
+		// DOWN
+		if (t_asteroids.m_asteroidSprite[asteroidIndex].getPosition().y > SCREEN_WIDTH + t_asteroids.m_asteroidSprite[asteroidIndex].getGlobalBounds().height) // 250, 0
+		{
+			t_asteroids.m_asteroidSprite[asteroidIndex].setPosition(t_asteroids.m_asteroidSprite[asteroidIndex].getPosition().x,
+				0 - t_asteroids.m_asteroidSprite[asteroidIndex].getGlobalBounds().height);
+		}
+		// RIGHT
+		if (t_asteroids.m_asteroidSprite[asteroidIndex].getPosition().x > SCREEN_WIDTH + BOUNDRY + t_asteroids.m_asteroidSprite[asteroidIndex].getGlobalBounds().width) // 250, 0
+		{
+			t_asteroids.m_asteroidSprite[asteroidIndex].setPosition(0 - t_asteroids.m_asteroidSprite[asteroidIndex].getGlobalBounds().width,
+				t_asteroids.m_asteroidSprite[asteroidIndex].getPosition().y);
+		}
+		// LEFT
+		if (t_asteroids.m_asteroidSprite[asteroidIndex].getPosition().x < -BOUNDRY - t_asteroids.m_asteroidSprite[asteroidIndex].getGlobalBounds().width) // 250, 0
+		{
+			t_asteroids.m_asteroidSprite[asteroidIndex].setPosition(SCREEN_WIDTH + t_asteroids.m_asteroidSprite[asteroidIndex].getGlobalBounds().width,
+				t_asteroids.m_asteroidSprite[asteroidIndex].getPosition().y);
+		}
+
+	}
+}
+
+
+
+
