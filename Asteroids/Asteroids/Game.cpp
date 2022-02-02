@@ -100,6 +100,7 @@ void Game::draw()
 	m_message.setString("Game Play");
 	window.draw(m_message);
 
+	player.draw(window);
 	asteroid.draw(window);
 
 	window.display();
