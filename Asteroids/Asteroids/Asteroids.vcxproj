@@ -21,7 +21,7 @@
   <ItemGroup>
     <ClCompile Include="Asteroids.cpp" />
     <ClCompile Include="Game.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Asteroids.h" />
@@ -29,9 +29,10 @@
     <ClInclude Include="Globals.h" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="ASSETS\IMAGES\asteroid.png" />
-    <Image Include="ASSETS\IMAGES\background.jpg" />
-    <Image Include="ASSETS\IMAGES\ship.png" />
+    <Image Include="ASSETS\IMAGES\SFML-LOGO.png">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</DeploymentContent>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Font Include="ASSETS\FONTS\ariblk.ttf">
@@ -43,7 +44,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{01b2b17b-4dd1-4e9e-82b7-022072b4a272}</ProjectGuid>
+    <ProjectGuid>{4874cb63-0771-4f75-a14b-5b244384cf72}</ProjectGuid>
     <RootNamespace>Asteroids</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>

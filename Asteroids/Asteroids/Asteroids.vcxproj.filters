@@ -21,7 +21,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Game.cpp">
@@ -35,21 +35,15 @@
     <ClInclude Include="Game.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Asteroids.h">
+    <ClInclude Include="Globals.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Globals.h">
+    <ClInclude Include="Asteroids.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="ASSETS\IMAGES\background.jpg">
-      <Filter>Resource Files\IMAGES</Filter>
-    </Image>
-    <Image Include="ASSETS\IMAGES\ship.png">
-      <Filter>Resource Files\IMAGES</Filter>
-    </Image>
-    <Image Include="ASSETS\IMAGES\asteroid.png">
+    <Image Include="ASSETS\IMAGES\SFML-LOGO.png">
       <Filter>Resource Files\IMAGES</Filter>
     </Image>
   </ItemGroup>

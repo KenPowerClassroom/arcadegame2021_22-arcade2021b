@@ -1,39 +1,30 @@
-#ifndef GAME_HPP
-#define GAME_HPP
+#pragma once
 
-#include <SFML/Graphics.hpp>
+#include "SFML/Graphics.hpp" 
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
 
-#include"Globals.h"
-#include "Asteroids.h"
+#include "Globals.h" 
+#include"Asteroids.h"
 
 class Game
 {
+	sf::RenderWindow window;
+
 public:
-	Game();
-	~Game();
-
-	void run();
-
-private:
-
-	void processEvents();
-	void processKeys(sf::Event t_event);
-	void update(sf::Time t_deltaTime);
-	void render();
-	
-	void setupFontAndText();
-	void setupSprite();
+	sf::Font m_font;
+	sf::Text m_message;
 
 	Asteroids asteroid;
 	AsteroidMovement asteroidMovement;
-	sf::RenderWindow m_window; 
-	sf::Font m_ArialBlackfont; 
 
-	sf::Texture m_backgroundTexture; 
+	sf::Texture m_backgroundTexture;
 	sf::Sprite m_backgroundSprite;
-	bool m_exitGame; 
-
+public:	
+	Game();
+	void	loadContent();
+	void	run();
+	void	update(sf::Time t_deltaTime);
+	void	draw();
 };
-
-#endif // !GAME_HPP
-
