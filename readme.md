@@ -1,5 +1,7 @@
 [![Build and Test](https://github.com/KenPowerClassroom/arcadegame2021_22-arcade2021b/actions/workflows/main.yml/badge.svg)](https://github.com/KenPowerClassroom/arcadegame2021_22-arcade2021b/actions/workflows/main.yml)
 
+# Don't delete/rename this file (KP)
+
 # TankGame
 
 ## CI pipleine notes
