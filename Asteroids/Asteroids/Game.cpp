@@ -87,6 +87,7 @@ void Game::update(sf::Time t_deltaTime)
 	{
 	}
 
+	player.update(t_deltaTime.asMilliseconds());
 
 	asteroid.update(t_deltaTime);
 	asteroidMovement.moveAsteroid(asteroid);

@@ -11,6 +11,10 @@ private:
 	sf::Sprite body;
 	sf::Texture texture;
 
+	double speed;
+	int rotation;
+	const int ROTATE_OFFSET = -90;
+
 public:
 	//Constructor
 	Player();
@@ -18,7 +22,7 @@ public:
 
 	void initialise();
 	void processInput();
-	void update(sf::Time dt);
+	void update(double dt);
 
 	void draw(sf::RenderWindow& t_window);
 };
