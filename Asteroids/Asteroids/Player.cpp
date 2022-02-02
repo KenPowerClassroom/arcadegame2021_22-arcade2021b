@@ -23,6 +23,14 @@ void Player::initialise()
 	body.setPosition(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
 }
 
+void Player::processInput()
+{
+}
+
+void Player::update(sf::Time dt)
+{
+}
+
 void Player::draw(sf::RenderWindow& t_window)
 {
 	t_window.draw(body);

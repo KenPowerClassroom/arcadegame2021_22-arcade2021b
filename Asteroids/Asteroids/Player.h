@@ -15,7 +15,10 @@ public:
 	//Constructor
 	Player();
 	void loadImages();
+
 	void initialise();
+	void processInput();
+	void update(sf::Time dt);
 
 	void draw(sf::RenderWindow& t_window);
 };
