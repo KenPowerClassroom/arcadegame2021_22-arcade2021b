@@ -14,10 +14,20 @@ void Asteroids::initialise()
 	for (int asteroidIndex = 0; asteroidIndex < MAX_ASTEROIDS; asteroidIndex++)
 	{
 		m_asteroidSprite[asteroidIndex].setTexture(m_asteroidTexture);
-		m_asteroidSprite[asteroidIndex].setScale(0.3, 0.3);
+		randScale = rand() % 3;
+		m_asteroidSprite[asteroidIndex].setScale(0.15 * randScale, 0.15 * randScale);
 		m_asteroidSprite[asteroidIndex].setOrigin(80, 80);
-		m_asteroidSprite[asteroidIndex].setPosition(200 + asteroidIndex * 40, 300);
+		m_asteroidSprite[asteroidIndex].setPosition(-20, -20);
+
 		randDirection[asteroidIndex].x = rand() % 10 - 5, randDirection[asteroidIndex].y = rand() % 10 -5;
+		if (randDirection[asteroidIndex].x == 0)
+		{
+			randDirection[asteroidIndex].x = 1;
+		}
+		if (randDirection[asteroidIndex].y == 0)
+		{
+			randDirection[asteroidIndex].y = 1;
+		}
 	}
 	
 }
