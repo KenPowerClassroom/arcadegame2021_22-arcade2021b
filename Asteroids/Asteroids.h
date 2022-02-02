@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include "Globals.h"
 
 class Asteroids
 {
@@ -11,7 +12,7 @@ public:
 	void draw(sf::RenderWindow& t_window);
 	void update(sf::Time t_deltaTime);
 
-	static const int MAX_ASTEROIDS = 10;
+	static const int MAX_ASTEROIDS = 20;
 
 	sf::RenderWindow m_window;
 	sf::Time m_time;
@@ -19,6 +20,7 @@ public:
 	sf::Texture m_asteroidTexture;
 	
 	sf::Vector2f randDirection[MAX_ASTEROIDS];
+	int randScale;
 }; 
 
 class AsteroidMovement
@@ -27,5 +29,8 @@ public:
 	AsteroidMovement();
 
 	void moveAsteroid(Asteroids &t_asteroids);
+	void loopAsteroid(Asteroids& t_asteroids);
+	void update(sf::Time t_deltaTime);
+
 };
 
