@@ -2,8 +2,6 @@
 #include "Game.h"
 #include <iostream>
 
-
-
 /// </summary>
 Game::Game() :
 	m_window{ sf::VideoMode{ 800U, 600U, 32U }, "SFML Game" },

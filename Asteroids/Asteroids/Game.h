@@ -1,8 +1,9 @@
-
 #ifndef GAME_HPP
 #define GAME_HPP
 
 #include <SFML/Graphics.hpp>
+
+#include"Globals.h"
 #include "Asteroids.h"
 
 class Game
