@@ -13,11 +13,12 @@ private:
 
 	double speed;
 	int rotation;
+	int prevRotation;
 	const int ROTATE_OFFSET = -90;
 
-	const int ACCELERATION = 4;
-	const int MAX_SPEED = 100;
-	const int ROTATE_SPEED = 3;
+	const int ACCELERATION = 10;
+	const int MAX_SPEED = 500;
+	const int ROTATE_SPEED = 5;
 
 public:
 	//Constructor

@@ -49,8 +49,8 @@ void Player::update(double dt)
 
 	speed *= SPACE_RESISRANCE_I_GUESS;
 
-	double newX = body.getPosition().x + (std::cos(rotation * DEG_TO_RAD) * speed * (dt / 1000));
-	double newY = body.getPosition().y + (std::sin(rotation * DEG_TO_RAD) * speed * (dt / 1000));
+	double newX = body.getPosition().x + (std::cos(prevRotation * DEG_TO_RAD) * speed * (dt / 1000));
+	double newY = body.getPosition().y + (std::sin(prevRotation * DEG_TO_RAD) * speed * (dt / 1000));
 
 	body.setPosition(newX, newY);
 }
@@ -58,6 +58,7 @@ void Player::update(double dt)
 void Player::acceleration()
 {
 	speed += ACCELERATION;
+	prevRotation = rotation;
 	if (speed > MAX_SPEED)
 	{
 		speed = MAX_SPEED;
