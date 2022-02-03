@@ -28,14 +28,62 @@ void Player::initialise()
 
 void Player::processInput()
 {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+	{
+		rotateRight();
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+	{
+		rotateLeft();
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+	{
+		acceleration();
+	}
 }
 
 void Player::update(double dt)
 {
+	processInput();
+
+	speed *= SPACE_RESISRANCE_I_GUESS;
+
 	double newX = body.getPosition().x + (std::cos(rotation * DEG_TO_RAD) * speed * (dt / 1000));
 	double newY = body.getPosition().y + (std::sin(rotation * DEG_TO_RAD) * speed * (dt / 1000));
 
 	body.setPosition(newX, newY);
+}
+
+void Player::acceleration()
+{
+	speed += ACCELERATION;
+	if (speed > MAX_SPEED)
+	{
+		speed = MAX_SPEED;
+	}
+}
+
+void Player::rotateLeft()
+{
+	rotation -= ROTATE_SPEED;
+	if (rotation < 0)
+	{
+		rotation += 360;
+	}
+
+	body.setRotation(rotation - ROTATE_OFFSET);
+}
+
+void Player::rotateRight()
+{
+	rotation += ROTATE_SPEED;
+	if (rotation > 360)
+	{
+		rotation -= 360;
+	}
+
+	body.setRotation(rotation - ROTATE_OFFSET);
 }
 
 void Player::draw(sf::RenderWindow& t_window)

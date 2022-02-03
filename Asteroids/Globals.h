@@ -7,3 +7,5 @@ static const int BOUNDRY = 20;
 
 double const PI = 2 * acos(0.0);
 double const DEG_TO_RAD = PI / 180.0f;
+
+double const SPACE_RESISRANCE_I_GUESS = 0.99f;
