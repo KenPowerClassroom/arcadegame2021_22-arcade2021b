@@ -17,7 +17,7 @@ private:
 	const int ROTATE_OFFSET = -90;
 
 	const int ACCELERATION = 20;
-	const int MAX_SPEED = 250;
+	const int MAX_SPEED = 300;
 	const int ROTATE_SPEED = 5;
 
 public:

@@ -52,6 +52,23 @@ void Player::update(double dt)
 	double newX = body.getPosition().x + (std::cos(prevRotation * DEG_TO_RAD) * speed * (dt / 1000));
 	double newY = body.getPosition().y + (std::sin(prevRotation * DEG_TO_RAD) * speed * (dt / 1000));
 
+	if (newX < -10)
+	{
+		newX = SCREEN_WIDTH;
+	}
+	else if (newX > SCREEN_WIDTH + 5)
+	{
+		newX = 0;
+	}
+	if (newY < -10)
+	{
+		newY = SCREEN_HEIGHT;
+	}
+	else if (newY > SCREEN_HEIGHT + 5)
+	{
+		newY = 0;
+	}
+
 	body.setPosition(newX, newY);
 }
 
