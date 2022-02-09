@@ -20,89 +20,38 @@ void Player::loadImages()
 
 void Player::initialise()
 {
-	speed = 50;
-	body.setRotation(0);
-	rotation = (body.getRotation() + ROTATE_OFFSET) ;
-	body.setPosition(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
+	controller.initialize();
+
+	body.setRotation(controller.returnRotation() + ROTATE_OFFSET);
+	body.setPosition(controller.returnXpos(), controller.returnYpos());
 }
 
 void Player::processInput()
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 	{
-		rotateRight();
+		controller.rotateRight();
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 	{
-		rotateLeft();
+		controller.rotateLeft();
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 	{
-		acceleration();
+		controller.acceleration();
 	}
 }
 
 void Player::update(double dt)
 {
 	processInput();
+	controller.update(dt);
 
-	speed *= SPACE_RESISRANCE_I_GUESS;
-
-	double newX = body.getPosition().x + (std::cos(prevRotation * DEG_TO_RAD) * speed * (dt / 1000));
-	double newY = body.getPosition().y + (std::sin(prevRotation * DEG_TO_RAD) * speed * (dt / 1000));
-
-	if (newX < -10)
-	{
-		newX = SCREEN_WIDTH;
-	}
-	else if (newX > SCREEN_WIDTH + 5)
-	{
-		newX = 0;
-	}
-	if (newY < -10)
-	{
-		newY = SCREEN_HEIGHT;
-	}
-	else if (newY > SCREEN_HEIGHT + 5)
-	{
-		newY = 0;
-	}
-
-	body.setPosition(newX, newY);
+	body.setRotation(controller.returnRotation() + ROTATE_OFFSET);
+	body.setPosition(controller.returnXpos(), controller.returnYpos());
 }
 
-void Player::acceleration()
-{
-	speed += ACCELERATION;
-	prevRotation = rotation;
-	if (speed > MAX_SPEED)
-	{
-		speed = MAX_SPEED;
-	}
-}
-
-void Player::rotateLeft()
-{
-	rotation -= ROTATE_SPEED;
-	if (rotation < 0)
-	{
-		rotation += 360;
-	}
-
-	body.setRotation(rotation - ROTATE_OFFSET);
-}
-
-void Player::rotateRight()
-{
-	rotation += ROTATE_SPEED;
-	if (rotation > 360)
-	{
-		rotation -= 360;
-	}
-
-	body.setRotation(rotation - ROTATE_OFFSET);
-}
 
 void Player::draw(sf::RenderWindow& t_window)
 {
