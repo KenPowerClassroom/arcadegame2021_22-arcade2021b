@@ -12,7 +12,7 @@ public:
 	void draw(sf::RenderWindow& t_window);
 	void update(sf::Time t_deltaTime);
 
-	static const int MAX_ASTEROIDS = 20;
+	void destroyAsteroid(int asteroidIndex);
 
 	sf::RenderWindow m_window;
 	sf::Time m_time;

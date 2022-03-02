@@ -87,12 +87,18 @@ void Game::update(sf::Time t_deltaTime)
 	{
 	}
 
-	player.update(t_deltaTime.asMilliseconds());
+	if (player.getLives() > 0)
+	{
+		player.update(t_deltaTime.asMilliseconds());
+		asteroid.update(t_deltaTime);
 
-	asteroid.update(t_deltaTime);
+		asteroidMovement.moveAsteroid(asteroid);
+		asteroidMovement.loopAsteroid(asteroid);
+	}
 
-	asteroidMovement.moveAsteroid(asteroid);
-	asteroidMovement.loopAsteroid(asteroid);
+
+
+	collision.playerAsteroidCollisionCheck(player, asteroid);
 }
 
 void Game::draw()

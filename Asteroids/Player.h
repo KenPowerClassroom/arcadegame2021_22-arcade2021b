@@ -11,15 +11,20 @@ private:
 	// Ship body
 	sf::Sprite body;
 	sf::Texture texture;
+	sf::Sprite livesSprites[MAX_LIVES];
 
 	PlayerController controller;
 
 	const int ROTATE_OFFSET = 90;
+	int lives = 3;
 
 public:
 	//Constructor
 	Player();
 	void loadImages();
+	sf::Sprite getSprite();
+	void reduceLives();
+	int getLives();
 
 	// Basics
 	void initialise();

@@ -8,6 +8,7 @@
 #include "Globals.h" 
 #include"Player.h"
 #include"Asteroids.h"
+#include "Collision.h"
 
 class Game
 {
@@ -21,6 +22,7 @@ public:
 
 	Asteroids asteroid;
 	AsteroidMovement asteroidMovement;
+	Collision collision;
 
 	sf::Texture m_backgroundTexture;
 	sf::Sprite m_backgroundSprite;

@@ -45,6 +45,11 @@ void Asteroids::update(sf::Time t_deltaTime)
 	
 }
 
+void Asteroids::destroyAsteroid(int asteroidIndex)
+{
+	randDirection[asteroidIndex] = { 0,0 };
+	m_asteroidSprite[asteroidIndex].setPosition(2000, 2000);
+}
 
 //
 // --------------------------------------------------------------------------------
@@ -63,7 +68,7 @@ void AsteroidMovement::update(sf::Time t_deltaTime)
 
 void AsteroidMovement::moveAsteroid(Asteroids &t_asteroids)
 {
-	for (int asteroidIndex = 0; asteroidIndex < t_asteroids.MAX_ASTEROIDS; asteroidIndex++)
+	for (int asteroidIndex = 0; asteroidIndex < MAX_ASTEROIDS; asteroidIndex++)
 	{
 		t_asteroids.m_asteroidSprite[asteroidIndex].move(t_asteroids.randDirection[asteroidIndex].x,
 														 t_asteroids.randDirection[asteroidIndex].y);
@@ -72,7 +77,7 @@ void AsteroidMovement::moveAsteroid(Asteroids &t_asteroids)
 
 void AsteroidMovement::loopAsteroid(Asteroids& t_asteroids)
 {
-	for (int asteroidIndex = 0; asteroidIndex < t_asteroids.MAX_ASTEROIDS; asteroidIndex++)
+	for (int asteroidIndex = 0; asteroidIndex < MAX_ASTEROIDS; asteroidIndex++)
 	{
 		// UP
 		if (t_asteroids.m_asteroidSprite[asteroidIndex].getPosition().y < - BOUNDRY - t_asteroids.m_asteroidSprite[asteroidIndex].getGlobalBounds().height) // 250, 0
