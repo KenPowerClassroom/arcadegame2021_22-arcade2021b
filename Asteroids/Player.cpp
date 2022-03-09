@@ -31,14 +31,34 @@ sf::Sprite Player::getSprite()
 	return body;
 }
 
-void Player::reduceLives()
+void Player::killPlayer()
 {
 	lives--;
+	dead = true;
+	respawnTimer.restart();
+}
+
+void Player::respawn()
+{
+	dead = false;
+	invincible = true;
+	initialise();
+	invincibilityTimer.restart();
 }
 
 int Player::getLives()
 {
 	return lives;
+}
+
+bool Player::getLiving()
+{
+	return dead;
+}
+
+bool Player::getInvincible()
+{
+	return invincible;
 }
 
 void Player::initialise()
@@ -68,6 +88,14 @@ void Player::processInput()
 
 void Player::update(double dt)
 {
+	if (respawnTimer.getElapsedTime().asSeconds() >= 2 && dead)
+	{
+		respawn();
+	}
+	if (invincibilityTimer.getElapsedTime().asSeconds() >= 2)
+	{
+		invincible = false;
+	}
 	processInput();
 	controller.update(dt);
 
@@ -78,8 +106,12 @@ void Player::update(double dt)
 
 void Player::draw(sf::RenderWindow& t_window)
 {
-	t_window.draw(body);
-	for (int index = 0; index < MAX_LIVES; index++)
+	if (!dead)
+	{
+		t_window.draw(body);
+	}
+
+	for (int index = 0; index < lives; index++)
 	{
 		t_window.draw(livesSprites[index]);
 	}
