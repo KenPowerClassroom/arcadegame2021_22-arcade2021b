@@ -66,7 +66,7 @@ TEST(PlayerController, SpeedDecreases) {
 	EXPECT_EQ(p.returnSpeed(), 0);
 }
 
-TEST(PlayerController, ItMoves) {
+TEST(PlayerController, ItMovesXAxis) {
 	PlayerController p;
 	// Start 400,300
 	// Accelorate speed = 20
@@ -76,4 +76,21 @@ TEST(PlayerController, ItMoves) {
 	p.update(1);
 	EXPECT_NE(p.returnXpos(), 400);
 	EXPECT_EQ(p.returnYpos(), 300);
+}
+
+TEST(PlayerController, ItMovesYAxis) {
+	PlayerController p;
+	// Start 400,300
+	// Accelorate speed = 20
+	for (int i = 0; i < 90; i++)
+	{
+		p.rotateLeft();
+	}
+	p.acceleration();
+	p.acceleration();
+
+	p.update(1);
+
+	EXPECT_EQ(p.returnXpos(), 400);
+	EXPECT_NE(p.returnYpos(), 300);
 }
