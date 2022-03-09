@@ -13,3 +13,6 @@ double const SPACE_RESISRANCE_I_GUESS = 0.99f;
 
 static const int MAX_ASTEROIDS = 20;
 static const int MAX_LIVES = 3;
+
+static const int BULLET_BAY = -200;
+static const int MAX_BULLETS = 4;

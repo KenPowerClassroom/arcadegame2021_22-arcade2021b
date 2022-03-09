@@ -6,7 +6,10 @@
 #include <ctime>
 
 #include "Globals.h" 
+
 #include"Player.h"
+#include"BulletPool.h"
+
 #include"Asteroids.h"
 #include "Collision.h"
 
@@ -19,6 +22,7 @@ public:
 	sf::Text m_message;
 
 	Player player;
+	BulletPool bulletPool;
 
 	Asteroids asteroid;
 	AsteroidMovement asteroidMovement;

@@ -90,6 +90,11 @@ void Game::update(sf::Time t_deltaTime)
 	if (player.getLives() > 0)
 	{
 		player.update(t_deltaTime.asMilliseconds());
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+		{
+			bulletPool.fire(player.getSprite());
+		}
 	}
 	asteroid.update(t_deltaTime);
 
@@ -114,6 +119,7 @@ void Game::draw()
 	}
 
 	player.draw(window);
+	bulletPool.draw(window);
 	asteroid.draw(window);
 
 
