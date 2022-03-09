@@ -31,5 +31,6 @@ public:
 	float returnXpos();
 	float returnYpos();
 	int returnRotation();
+	int returnSpeed();
 };
 

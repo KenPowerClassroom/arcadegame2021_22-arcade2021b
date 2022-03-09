@@ -70,4 +70,7 @@
       <Filter>Resource Files\FONTS</Filter>
     </Font>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
 </Project>

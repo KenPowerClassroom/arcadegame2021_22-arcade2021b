@@ -81,3 +81,8 @@ int PlayerController::returnRotation()
 {
 	return rotation;
 }
+
+int PlayerController::returnSpeed()
+{
+	return speed;
+}
