@@ -7,7 +7,8 @@ void Collision::playerAsteroidCollisionCheck(Player& t_player, Asteroids& t_aste
 		if (t_asteroids.m_asteroidSprite[index].getGlobalBounds().intersects(t_player.getSprite().getGlobalBounds()))
 		{
 			t_asteroids.destroyAsteroid(index);
-			t_player.reduceLives();
+			t_player.killPlayer();
+			break;
 		}
 	}
 }

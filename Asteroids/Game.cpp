@@ -29,9 +29,9 @@ void Game::loadContent()
 	}
 
 	m_message.setFont(m_font);
-	m_message.setCharacterSize(24);
+	m_message.setCharacterSize(50);
 	m_message.setFillColor(sf::Color::White);
-	m_message.setPosition(10, 10);
+	m_message.setPosition(280, 250);
 
 	// Background
 	if (!m_backgroundTexture.loadFromFile("ASSETS\\IMAGES\\background.jpg"))
@@ -79,26 +79,27 @@ void Game::run()
 
 void Game::update(sf::Time t_deltaTime)
 {
-	// Keyboard input
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+	if (!player.getLives() > 0)
 	{
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-	{
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
+		{
+			window.close();
+		}
 	}
 
 	if (player.getLives() > 0)
 	{
 		player.update(t_deltaTime.asMilliseconds());
-		asteroid.update(t_deltaTime);
-
-		asteroidMovement.moveAsteroid(asteroid);
-		asteroidMovement.loopAsteroid(asteroid);
 	}
+	asteroid.update(t_deltaTime);
 
+	asteroidMovement.moveAsteroid(asteroid);
+	asteroidMovement.loopAsteroid(asteroid);
 
-
-	collision.playerAsteroidCollisionCheck(player, asteroid);
+	if (!player.getLiving() && !player.getInvincible())
+	{
+		collision.playerAsteroidCollisionCheck(player, asteroid);
+	}
 }
 
 void Game::draw()
@@ -106,8 +107,11 @@ void Game::draw()
 	window.clear();
 	window.draw(m_backgroundSprite);
 
-	m_message.setString("Game Play");
-	window.draw(m_message);
+	m_message.setString("     You're not\n alive anymore");
+	if (!player.getLives() > 0)
+	{
+		window.draw(m_message);
+	}
 
 	player.draw(window);
 	asteroid.draw(window);
