@@ -25,7 +25,7 @@ public:
 	void update(int dt);
 	void move(int t_i, int dt);
 
-	void fire(sf::Sprite t_player);
+	bool fire(sf::Sprite t_player);
 
 	void draw(sf::RenderWindow& t_window);
 };

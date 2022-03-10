@@ -15,5 +15,5 @@ static const int MAX_ASTEROIDS = 20;
 static const int MAX_LIVES = 3;
 
 static const int BULLET_BAY = -200;
-static const int MAX_BULLETS = 4;
-static const int BULLET_DELAY = 100;
+static const int MAX_BULLETS = 3;
+static const int BULLET_DELAY = 10;

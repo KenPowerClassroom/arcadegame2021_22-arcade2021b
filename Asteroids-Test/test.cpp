@@ -1,5 +1,6 @@
 #include"pch.h"
 #include"../Asteroids/PlayerController.h"
+//#include"../Asteroids/BulletPool.h"
 
 // BEN 1
 TEST(TestCaseName, TestName) {
@@ -94,3 +95,14 @@ TEST(PlayerController, ItMovesYAxis) {
 	EXPECT_EQ(p.returnXpos(), 400);
 	EXPECT_NE(p.returnYpos(), 300);
 }
+
+// BEN 2
+/*
+TEST(BulletPool, SpamFire) {
+	BulletPool pool;
+	pool.fire(NULL);
+
+	EXPECT_TRUE(pool.fire(NULL));
+	EXPECT_FALSE(pool.fire(NULL));
+}
+*/

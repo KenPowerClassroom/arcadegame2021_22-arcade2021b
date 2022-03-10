@@ -45,22 +45,45 @@ void BulletPool::move(int t_i, int dt)
 	sf::Vector2f newPos = bullets[t_i].getPosition();
 	newPos.x += (std::cos(rotation[t_i] * DEG_TO_RAD) * SPEED);
 	newPos.y += (std::sin(rotation[t_i] * DEG_TO_RAD) * SPEED);
-	bullets[t_i].setPosition(newPos);
+
+	if (newPos.x < 0 || newPos.y < 0 || newPos.x>SCREEN_WIDTH || newPos.y>SCREEN_HEIGHT)
+	{
+		bullets[t_i].setPosition(BULLET_BAY, BULLET_BAY);
+		fired[t_i] = false;
+	}
+	else
+	{
+		bullets[t_i].setPosition(newPos);
+	}
 }
 
-void BulletPool::fire(sf::Sprite t_player)
+bool BulletPool::fire(sf::Sprite t_player)
 {
 	if (fireDelay < 0)
 	{
-		bullets[1].setPosition(t_player.getPosition());
-		rotation[1] = t_player.getRotation() - ROTATE_OFFSET;
-		fired[1] = true;
+		for (int i = 0; i < MAX_BULLETS; i++)
+		{
+			if (!fired[i])
+			{
+				bullets[i].setPosition(t_player.getPosition());
+				rotation[i] = t_player.getRotation() - ROTATE_OFFSET;
+				fired[i] = true;
 
-		fireDelay = BULLET_DELAY;
+				fireDelay = BULLET_DELAY;
+				return true;
+			}
+		}
 	}
+	return false;
 }
 
 void BulletPool::draw(sf::RenderWindow& t_window)
 {
-	t_window.draw(bullets[1]);
+	for (int i = 0; i < MAX_BULLETS; i++)
+	{
+		if (fired[i])
+		{
+			t_window.draw(bullets[i]);
+		}
+	}
 }
