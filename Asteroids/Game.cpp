@@ -90,8 +90,9 @@ void Game::update(sf::Time t_deltaTime)
 	if (player.getLives() > 0)
 	{
 		player.update(t_deltaTime.asMilliseconds());
+		bulletPool.update(t_deltaTime.asMilliseconds());
 
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space) && !player.getLiving())
 		{
 			bulletPool.fire(player.getSprite());
 		}
